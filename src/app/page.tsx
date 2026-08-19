@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   ChalkHeading,
+  CopyEmailButton,
   Hero,
   LIFT_FACE,
   Marquee,
@@ -18,17 +19,19 @@ export default function Home() {
         ghostLabel="GitHub"
         ghostHref={site.github}
         ctaLabel="Email"
-        ctaHref={`mailto:${site.email}`}
+        copyEmail={site.email}
       />
 
       <Hero
         eyebrow={site.hero.eyebrow}
         title={site.hero.title}
         description={site.hero.description}
-        primaryLabel="View work"
-        primaryHref="#work"
-        secondaryLabel="GitHub"
-        secondaryHref={site.github}
+        actions={[
+          { label: "View work", href: "#work", variant: "primary" },
+          { label: "Contact me", href: "#contact" },
+          { label: "LinkedIn", href: site.linkedin },
+          { label: "Email me", copyEmail: site.email },
+        ]}
         logos={[site.experiences[0].company, site.experiences[1].company, site.education.school]}
       />
 
@@ -257,15 +260,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <PopLift>
-              <a
-                href={`mailto:${site.email}`}
-                className={`inline-flex items-center justify-center border-2 border-[var(--ink)] bg-[var(--sky)] px-6 py-2.5 text-sm font-medium text-[var(--ink)] ${LIFT_FACE}`}
-                style={{ borderRadius: "var(--radius)" }}
-              >
-                {site.email}
-              </a>
-            </PopLift>
+            <CopyEmailButton email={site.email}>{site.email}</CopyEmailButton>
             <PopLift>
               <a
                 href={site.linkedin}

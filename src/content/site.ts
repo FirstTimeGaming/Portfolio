@@ -45,6 +45,7 @@ export const site = {
     "PostgreSQL",
     "Drizzle ORM",
     "Python",
+    "EC2",
     "Next.js",
     "Supabase",
     "Edge Functions",
@@ -59,7 +60,7 @@ export const site = {
     "DataDog",
     "Protocol Buffers",
     "React Native",
-    "ECS / EC2",
+    "ECS",
     "Capacitor",
   ],
   experiences: [
@@ -197,15 +198,15 @@ export const site = {
   focuses: [
     {
       title: "Data & cloud pipelines",
-      body: "ODBC extraction, S3/Parquet landing, SQS transform workers, protobuf control planes, and the operational UI that keeps fleets inspectable",
+      body: "ODBC extraction, S3/Parquet landing, SQS transform workers, protobuf control planes — and verified fintech webhooks through Edge Functions, dual-write queues, and scheduled Lambda consumers",
     },
     {
       title: "Product platforms",
-      body: "Next.js/TypeScript systems with Drizzle, realtime collaboration, audit trails, reporting exports, and CI that fails for the right reasons",
+      body: "Next.js/TypeScript systems with Drizzle, realtime collaboration, and a hosted tRPC API shared across web and React Native — expandable to desktop — with automated mobile CI builds on ECS/EC2 publishing to S3",
     },
     {
       title: "AI product engineering",
-      body: "Persistent memory, provider migrations, prompt/tooling boundaries, and verified Plaid webhooks through Edge Functions, SQS, and Lambda on multi-user Postgres with RLS",
+      body: "Persistent memory, provider migrations including Bedrock, prompt/tooling boundaries, and internal Discord assistants with usage-cost tracking on multi-user Postgres with RLS",
     },
   ],
 } as const;

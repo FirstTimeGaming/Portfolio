@@ -27,14 +27,14 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 /** Face only moves; the ink plate stays put so lift/fall eases cleanly both ways.
  *  Lift on real hover / keyboard focus-visible only — not sticky :focus after click. */
 const LIFT_FACE =
-  "relative -translate-x-1.5 translate-y-1.5 transition-transform duration-300 ease-in-out motion-reduce:transition-none [@media(hover:hover)]:group-hover:translate-x-0 [@media(hover:hover)]:group-hover:translate-y-0 focus-visible:translate-x-0 focus-visible:translate-y-0 active:-translate-x-1.5 active:translate-y-1.5";
+  "relative z-10 -translate-x-1.5 translate-y-1.5 transition-transform duration-300 ease-in-out motion-reduce:transition-none [@media(hover:hover)]:group-hover:translate-x-0 [@media(hover:hover)]:group-hover:translate-y-0 focus-visible:translate-x-0 focus-visible:translate-y-0 active:-translate-x-1.5 active:translate-y-1.5";
 
 function PopLift({ children }: { children: ReactNode }) {
   return (
-    <span className="group relative inline-flex">
+    <span className="group relative isolate inline-flex">
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 -translate-x-1.5 translate-y-1.5 bg-[var(--ink)]"
+        className="pointer-events-none absolute inset-0 -z-10 -translate-x-1.5 translate-y-1.5 bg-[var(--ink)]"
         style={{ borderRadius: "var(--radius)" }}
       />
       {children}

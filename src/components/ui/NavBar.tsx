@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "./Button";
+import { CopyEmailButton } from "./CopyEmailButton";
 
 type NavLink = {
   label: string;
@@ -11,6 +14,7 @@ type NavBarProps = {
   links?: NavLink[];
   ctaLabel?: string;
   ctaHref?: string;
+  copyEmail?: string;
   onCtaClick?: () => void;
   showGhost?: boolean;
   ghostLabel?: string;
@@ -33,6 +37,7 @@ export function NavBar({
   links = DEFAULT_LINKS,
   ctaLabel = "Email",
   ctaHref,
+  copyEmail,
   onCtaClick,
   showGhost = false,
   ghostLabel = "GitHub",
@@ -98,7 +103,16 @@ export function NavBar({
               </Button>
             )
           ) : null}
-          {ctaHref ? (
+          {copyEmail ? (
+            <CopyEmailButton
+              email={copyEmail}
+              lift={false}
+              className="inline-flex items-center justify-center border-2 border-[var(--ink)] bg-[var(--sky)] px-4 py-2 text-xs font-semibold uppercase text-[var(--white)]"
+              style={{ borderRadius: "var(--radius)" }}
+            >
+              {ctaLabel}
+            </CopyEmailButton>
+          ) : ctaHref ? (
             <a
               href={ctaHref}
               className="inline-flex items-center justify-center border-2 border-[var(--ink)] bg-[var(--sky)] px-4 py-2 text-xs font-semibold uppercase text-[var(--white)]"
