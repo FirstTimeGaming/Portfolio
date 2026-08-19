@@ -49,13 +49,23 @@ export function Hero({
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {primaryHref ? (
             <PopLift>
-              <Link
-                href={primaryHref}
-                className={`${linkButtonClass} bg-[var(--sky)]`}
-                style={{ borderRadius: "var(--radius)" }}
-              >
-                {primaryLabel}
-              </Link>
+              {primaryHref.startsWith("#") ? (
+                <a
+                  href={primaryHref}
+                  className={`${linkButtonClass} bg-[var(--sky)]`}
+                  style={{ borderRadius: "var(--radius)" }}
+                >
+                  {primaryLabel}
+                </a>
+              ) : (
+                <Link
+                  href={primaryHref}
+                  className={`${linkButtonClass} bg-[var(--sky)]`}
+                  style={{ borderRadius: "var(--radius)" }}
+                >
+                  {primaryLabel}
+                </Link>
+              )}
             </PopLift>
           ) : (
             <Button variant="primary" type="button" onClick={onPrimaryClick}>
