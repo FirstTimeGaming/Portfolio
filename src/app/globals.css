@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  /* Surfaces */
+  --cream: #f4efea;
+  --white: #ffffff;
+  --chalk: #f8f8f7;
+  --ice: #ebf9ff;
+  --notebook-pale: #f9fbe7;
+  --peach-blush: #fdedda;
+
+  /* Chalkboard */
+  --board: #2c322c;
+  --board-deep: #1f241f;
+  --dust: #f3efe3;
+  --dust-soft: #d9d4c4;
+
+  /* Ink */
+  --ink: #383838;
+  --muted: #a1a1a1;
+  --graphite: #818181;
+  --soft-silver: #c0c0c0;
+
+  /* Accents */
+  --sky: #6fc2ff;
+  --canary: #ffde00;
+  --orange: #ff9538;
+  --wet-cement: #54b4de;
+
+  /* Rainbow outline borders */
+  --coral: #f38e84;
+  --peach: #f5b161;
+  --mint: #38c1b0;
+  --lilac: #b291de;
+  --lime: #b3c419;
+  --periwinkle: #7597ee;
+  --slate-sketch: #84a6bc;
+  --marigold: #e1c427;
+
+  /* Shape & elevation */
+  --radius: 2px;
+  --shadow: rgb(56, 56, 56) -6px 6px 0px 0px;
+  --tracking: 0.02em;
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-sky: var(--sky);
+  --color-canary: var(--canary);
+  --color-muted: var(--muted);
+  --color-ice: var(--ice);
+  --color-board: var(--board);
+  --color-dust: var(--dust);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  letter-spacing: var(--tracking);
+}
+
+.chalkboard {
+  background:
+    radial-gradient(
+      ellipse at 20% 10%,
+      rgba(255, 255, 255, 0.04),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 80% 90%,
+      rgba(0, 0, 0, 0.25),
+      transparent 50%
+    ),
+    linear-gradient(160deg, var(--board) 0%, var(--board-deep) 100%);
+  color: var(--dust);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 28s linear infinite;
+}
