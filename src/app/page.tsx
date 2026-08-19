@@ -46,46 +46,82 @@ export default function Home() {
             Selected engineering work
           </ChalkHeading>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--ink)] sm:text-base">
-            Sourced from a curated brag sheet and resume bank — strongest,
-            attribution-safe bullets only.
+            Deeper cuts from a curated brag sheet — grouped by problem area, with
+            attribution-safe wording and concrete scope where the evidence
+            supports it
           </p>
 
-          <div className="mt-12 space-y-10">
+          <div className="mt-12 space-y-14">
             {site.experiences.map((job) => (
               <article
                 key={job.id}
-                className="border-2 border-[var(--ink)] bg-[var(--white)] p-6 shadow-[var(--shadow)] sm:p-8"
+                id={job.id}
+                className="scroll-mt-24 border-2 border-[var(--ink)] bg-[var(--white)] shadow-[var(--shadow)]"
                 style={{ borderRadius: "var(--radius)" }}
               >
-                <div className="flex flex-col gap-2 border-b-2 border-[var(--ink)] pb-4 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <h3 className="text-lg font-semibold uppercase text-[var(--ink)] sm:text-xl">
-                      {job.company}
-                    </h3>
-                    <p className="mt-1 text-sm text-[var(--ink)]">
-                      {job.role}
+                <header className="border-b-2 border-[var(--ink)] px-6 py-6 sm:px-8 sm:py-7">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <h3 className="text-xl font-semibold uppercase text-[var(--ink)] sm:text-2xl">
+                        {job.company}
+                      </h3>
+                      <p className="mt-1 text-sm text-[var(--ink)]">
+                        {job.role}
+                      </p>
+                    </div>
+                    <p className="text-xs font-medium uppercase text-[var(--muted)]">
+                      {job.dates}
                     </p>
                   </div>
-                  <p className="text-xs font-medium uppercase text-[var(--muted)]">
-                    {job.dates}
+                  <p className="mt-5 max-w-3xl text-sm leading-relaxed text-[var(--ink)] sm:text-base">
+                    {job.summary}
                   </p>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-[var(--ink)]">
-                  {job.summary}
-                </p>
-                {"note" in job && job.note ? (
-                  <p className="mt-2 text-xs text-[var(--muted)]">{job.note}</p>
-                ) : null}
-                <ul className="mt-6 space-y-3">
-                  {job.bullets.map((bullet) => (
-                    <li
-                      key={bullet}
-                      className="border-l-2 border-[var(--sky)] pl-4 text-sm leading-relaxed text-[var(--ink)]"
+                  {"note" in job && job.note ? (
+                    <p className="mt-3 text-xs text-[var(--muted)]">{job.note}</p>
+                  ) : null}
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {job.stack.map((tech) => (
+                      <li
+                        key={tech}
+                        className="border border-[var(--ink)] bg-[var(--cream)] px-2 py-1 text-[10px] font-medium uppercase text-[var(--ink)]"
+                        style={{ borderRadius: "var(--radius)" }}
+                      >
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </header>
+
+                <div className="divide-y-2 divide-[var(--ink)]">
+                  {job.themes.map((theme, index) => (
+                    <section
+                      key={theme.title}
+                      className="grid gap-4 px-6 py-6 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] sm:gap-8 sm:px-8 sm:py-8"
                     >
-                      {bullet}
-                    </li>
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase text-[var(--muted)]">
+                          0{index + 1}
+                        </p>
+                        <h4 className="mt-2 text-base font-semibold uppercase leading-snug text-[var(--ink)] sm:text-lg">
+                          {theme.title}
+                        </h4>
+                        <p className="mt-3 text-sm leading-relaxed text-[var(--ink)]">
+                          {theme.body}
+                        </p>
+                      </div>
+                      <ul className="space-y-3">
+                        {theme.points.map((point) => (
+                          <li
+                            key={point}
+                            className="border-l-2 border-[var(--sky)] pl-4 text-sm leading-relaxed text-[var(--ink)]"
+                          >
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
                   ))}
-                </ul>
+                </div>
               </article>
             ))}
           </div>
@@ -137,7 +173,7 @@ export default function Home() {
               I care about systems you can defend in an interview: clear
               ownership, real blast radius, and wording that matches the code.
               Day to day that means TypeScript platforms, Python data services,
-              and AI product surfaces that stay operable in production.
+              and AI product surfaces that stay operable in production
             </p>
             <dl className="mt-8 grid gap-3 sm:grid-cols-2">
               <div className="border border-[var(--ink)]/30 bg-[var(--white)] px-3 py-2">
@@ -193,7 +229,7 @@ export default function Home() {
               <p className="mt-4 text-sm leading-relaxed text-[var(--dust-soft)]">
                 Prefer numbers you can open in a repo. Prefer collaborative
                 wording when ownership is shared. Keep prototypes labeled as
-                prototypes.
+                prototypes
               </p>
             </div>
             <p className="mt-8 text-xs uppercase text-[var(--dust-soft)]">
@@ -217,7 +253,7 @@ export default function Home() {
             </ChalkHeading>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-[var(--ink)]">
               Open to software engineering roles across backend, platform, data,
-              and AI product work.
+              and AI product work
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
