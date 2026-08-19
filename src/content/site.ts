@@ -184,9 +184,10 @@ export const site = {
         },
         {
           title: "Mobile delivery",
-          body: "The durable mobile path is React Native with automated CI phone-app builds on ECS/EC2 that publish artifacts to S3. Early on, Capacitor helped the team iterate quickly against the web app before that native pipeline was the default",
+          body: "The durable mobile path is React Native with automated CI phone-app builds on ECS/EC2 that publish artifacts to S3. A hosted tRPC API keeps web and native clients on the same typed contract — expandable to surfaces like Electron later — while early Capacitor work helped the team iterate quickly against the web app before that native pipeline was the default",
           points: [
             "Built toward a React Native mobile path with automated CI phone-app build pipelines running on ECS/EC2 and publishing build artifacts to S3",
+            "Shared a hosted tRPC API across separate clients so the Next.js web app and React Native app consume the same typed procedures — keeping the backend expandable to additional surfaces such as Electron desktop",
             "Used Capacitor as an early-stage iOS wrapper around the Next.js app for fast iteration, debugging routing, styling, generated-build, and hosted-link issues at the native boundary",
           ],
         },
