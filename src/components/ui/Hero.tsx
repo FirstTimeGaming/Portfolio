@@ -6,19 +6,19 @@ import { Button, LIFT_FACE, PopLift } from "./Button";
 import { CopyEmailButton } from "./CopyEmailButton";
 import { ChalkHeading } from "./ChalkHeading";
 
-export type HeroAction =
-  | {
-      label: string;
-      href: string;
-      variant?: "primary" | "secondary";
-      copyEmail?: never;
-    }
-  | {
-      label: string;
-      copyEmail: string;
-      variant?: "primary" | "secondary";
-      href?: never;
-    };
+export type HeroLinkAction = {
+  label: string;
+  href: string;
+  variant?: "primary" | "secondary";
+};
+
+export type HeroCopyAction = {
+  label: string;
+  copyEmail: string;
+  variant?: "primary" | "secondary";
+};
+
+export type HeroAction = HeroLinkAction | HeroCopyAction;
 
 type HeroProps = {
   eyebrow?: string;
@@ -45,6 +45,10 @@ function isPlainAnchorHref(href: string) {
   return href.startsWith("#") || href.startsWith("mailto:");
 }
 
+function isCopyAction(action: HeroAction): action is HeroCopyAction {
+  return "copyEmail" in action;
+}
+
 function faceClass(variant: "primary" | "secondary" = "secondary") {
   return `${linkButtonClass} ${
     variant === "primary" ? "bg-[var(--sky)]" : "bg-[var(--white)]"
@@ -55,7 +59,7 @@ function HeroActionButton(action: HeroAction) {
   const variant = action.variant ?? "secondary";
   const style = { borderRadius: "var(--radius)" };
 
-  if ("copyEmail" in action && action.copyEmail) {
+  if (isCopyAction(action)) {
     return (
       <CopyEmailButton
         email={action.copyEmail}
@@ -66,7 +70,7 @@ function HeroActionButton(action: HeroAction) {
     );
   }
 
-  const href = action.href;
+  const { href } = action;
   const className = faceClass(variant);
 
   if (isPlainAnchorHref(href)) {
@@ -108,24 +112,22 @@ export function Hero({
   onSecondaryClick,
   children,
 }: HeroProps) {
-  const resolvedActions: HeroAction[] =
-    actions ??
-    [
-      primaryHref
-        ? {
-            label: primaryLabel,
-            href: primaryHref,
-            variant: "primary" as const,
-          }
-        : null,
-      secondaryHref
-        ? {
-            label: secondaryLabel,
-            href: secondaryHref,
-            variant: "secondary" as const,
-          }
-        : null,
-    ].filter((action): action is HeroAction => action !== null);
+  const fallbackActions: HeroAction[] = [];
+  if (primaryHref) {
+    fallbackActions.push({
+      label: primaryLabel,
+      href: primaryHref,
+      variant: "primary",
+    });
+  }
+  if (secondaryHref) {
+    fallbackActions.push({
+      label: secondaryLabel,
+      href: secondaryHref,
+      variant: "secondary",
+    });
+  }
+  const resolvedActions = actions ?? fallbackActions;
 
   return (
     <section className="w-full bg-[var(--cream)] px-4 py-16 sm:px-6 sm:py-24">
@@ -146,7 +148,7 @@ export function Hero({
             resolvedActions.map((action) => (
               <HeroActionButton
                 key={
-                  "copyEmail" in action && action.copyEmail
+                  isCopyAction(action)
                     ? `${action.label}-copy`
                     : `${action.label}-${action.href}`
                 }
