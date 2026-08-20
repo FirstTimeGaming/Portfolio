@@ -24,7 +24,7 @@ export function ChalkHeading({
 }: ChalkHeadingProps) {
   const Tag = as;
   const color =
-    tone === "dust" ? "text-[var(--dust)]" : "text-[var(--ink)]";
+    tone === "dust" ? "text-dust" : "text-ink";
 
   return (
     <Tag

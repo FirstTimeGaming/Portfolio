@@ -35,7 +35,7 @@ type HeroProps = {
   children?: ReactNode;
 };
 
-const linkButtonClass = `inline-flex items-center justify-center border-2 border-[var(--ink)] px-6 py-2.5 text-sm font-medium text-[var(--ink)] ${LIFT_FACE}`;
+const linkButtonClass = `inline-flex items-center justify-center border-2 border-ink px-6 py-2.5 text-sm font-medium text-ink ${LIFT_FACE}`;
 
 function isExternalHref(href: string) {
   return href.startsWith("http://") || href.startsWith("https://");
@@ -51,7 +51,7 @@ function isCopyAction(action: HeroAction): action is HeroCopyAction {
 
 function faceClass(variant: "primary" | "secondary" = "secondary") {
   return `${linkButtonClass} ${
-    variant === "primary" ? "bg-[var(--sky)]" : "bg-[var(--white)]"
+    variant === "primary" ? "bg-sky" : "bg-white"
   }`;
 }
 
@@ -130,17 +130,17 @@ export function Hero({
   const resolvedActions = actions ?? fallbackActions;
 
   return (
-    <section className="w-full bg-[var(--cream)] px-4 py-16 sm:px-6 sm:py-24">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center text-center">
+    <section className="w-full bg-cream px-4 py-16 sm:px-6 sm:py-24">
+      <div className="mx-auto flex max-w-300 flex-col items-center text-center">
         {eyebrow ? (
-          <p className="mb-4 text-xs font-semibold uppercase text-[var(--muted)]">
+          <p className="mb-4 text-xs font-semibold uppercase text-muted">
             {eyebrow}
           </p>
         ) : null}
         <ChalkHeading as="h1" className="max-w-3xl uppercase">
           {title}
         </ChalkHeading>
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--ink)] sm:text-lg">
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-ink sm:text-lg">
           {description}
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -175,7 +175,7 @@ export function Hero({
             {logos.map((logo) => (
               <span
                 key={logo}
-                className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--ink)] opacity-70"
+                className="text-xs font-semibold uppercase tracking-[0.08em] text-ink opacity-70"
               >
                 {logo}
               </span>

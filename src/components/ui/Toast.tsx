@@ -86,7 +86,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
           <div
             key={toastId}
             onAnimationEnd={handleAnimationEnd}
-            className="border-2 border-[var(--ink)] bg-[var(--white)] px-4 py-2.5 text-sm font-medium text-[var(--ink)] shadow-[var(--shadow)] motion-reduce:animate-none motion-reduce:opacity-100"
+            className="border-2 border-ink bg-white px-4 py-2.5 text-sm font-medium text-ink shadow-hard motion-reduce:animate-none motion-reduce:opacity-100"
             style={{
               borderRadius: "var(--radius)",
               animationName:

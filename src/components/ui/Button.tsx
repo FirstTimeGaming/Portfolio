@@ -34,7 +34,7 @@ function PopLift({ children }: { children: ReactNode }) {
     <span className="group relative isolate inline-flex">
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 -translate-x-1.5 translate-y-1.5 bg-[var(--ink)]"
+        className="pointer-events-none absolute inset-0 -z-10 -translate-x-1.5 translate-y-1.5 bg-ink"
         style={{ borderRadius: "var(--radius)" }}
       />
       {children}
@@ -57,7 +57,7 @@ export function Button({
     return (
       <PopLift>
         <button
-          className={`${base} ${LIFT_FACE} bg-[var(--sky)] border-[var(--ink)] text-[var(--ink)] px-6 py-2.5 text-sm ${className}`}
+          className={`${base} ${LIFT_FACE} bg-sky border-ink text-ink px-6 py-2.5 text-sm ${className}`}
           style={{ borderRadius: "var(--radius)", ...style }}
           {...props}
         >
@@ -71,7 +71,7 @@ export function Button({
     return (
       <PopLift>
         <button
-          className={`${base} ${LIFT_FACE} bg-[var(--white)] border-[var(--ink)] text-[var(--ink)] px-6 py-2.5 text-sm ${className}`}
+          className={`${base} ${LIFT_FACE} bg-white border-ink text-ink px-6 py-2.5 text-sm ${className}`}
           style={{ borderRadius: "var(--radius)", ...style }}
           {...props}
         >
@@ -86,7 +86,7 @@ export function Button({
     return (
       <PopLift>
         <button
-          className={`${base} ${LIFT_FACE} bg-[var(--white)] text-[var(--ink)] px-6 py-2.5 text-sm ${className}`}
+          className={`${base} ${LIFT_FACE} bg-white text-ink px-6 py-2.5 text-sm ${className}`}
           style={{
             borderRadius: "var(--radius)",
             borderColor,
@@ -103,7 +103,7 @@ export function Button({
   if (variant === "nav") {
     return (
       <button
-        className={`${base} bg-[var(--sky)] border-[var(--ink)] text-[var(--white)] px-4 py-2 text-xs font-semibold uppercase ${className}`}
+        className={`${base} bg-sky border-ink text-white px-4 py-2 text-xs font-semibold uppercase ${className}`}
         style={{ borderRadius: "var(--radius)", ...style }}
         {...props}
       >
@@ -114,7 +114,7 @@ export function Button({
 
   return (
     <button
-      className={`${base} border-transparent bg-transparent text-[var(--ink)] px-3 py-2 text-xs font-medium uppercase hover:bg-[var(--chalk)] ${className}`}
+      className={`${base} border-transparent bg-transparent text-ink px-3 py-2 text-xs font-medium uppercase hover:bg-chalk ${className}`}
       style={{ borderRadius: "var(--radius)", ...style }}
       {...props}
     >

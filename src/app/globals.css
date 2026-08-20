@@ -50,13 +50,18 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-cream: var(--cream);
+  --color-white: var(--white);
+  --color-chalk: var(--chalk);
+  --color-ice: var(--ice);
   --color-ink: var(--ink);
+  --color-muted: var(--muted);
   --color-sky: var(--sky);
   --color-canary: var(--canary);
-  --color-muted: var(--muted);
-  --color-ice: var(--ice);
   --color-board: var(--board);
   --color-dust: var(--dust);
+  --color-dust-soft: var(--dust-soft);
+  --color-wet-cement: var(--wet-cement);
+  --shadow-hard: var(--shadow);
   --font-mono: var(--font-jetbrains-mono);
 }
 

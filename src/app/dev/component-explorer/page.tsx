@@ -49,15 +49,15 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 border-b-2 border-[var(--ink)] py-12">
+    <section id={id} className="scroll-mt-24 border-b-2 border-ink py-12">
       <div className="mb-8 max-w-2xl">
-        <p className="mb-2 text-xs font-semibold uppercase text-[var(--muted)]">
+        <p className="mb-2 text-xs font-semibold uppercase text-muted">
           Component
         </p>
-        <h2 className="text-2xl font-semibold uppercase text-[var(--ink)] sm:text-3xl">
+        <h2 className="text-2xl font-semibold uppercase text-ink sm:text-3xl">
           {title}
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-[var(--ink)] sm:text-base">
+        <p className="mt-3 text-sm leading-relaxed text-ink sm:text-base">
           {description}
         </p>
       </div>
@@ -68,30 +68,30 @@ function Section({
 
 function Spec({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border border-[var(--ink)]/30 bg-[var(--white)] px-3 py-2">
-      <dt className="text-[10px] font-semibold uppercase text-[var(--muted)]">
+    <div className="border border-ink/30 bg-white px-3 py-2">
+      <dt className="text-[10px] font-semibold uppercase text-muted">
         {label}
       </dt>
-      <dd className="mt-1 text-xs text-[var(--ink)]">{value}</dd>
+      <dd className="mt-1 text-xs text-ink">{value}</dd>
     </div>
   );
 }
 
 export default function ComponentExplorerPage() {
   return (
-    <div className="min-h-screen bg-[var(--cream)]">
-      <header className="sticky top-0 z-20 border-b-2 border-[var(--ink)] bg-[var(--white)]">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-4 py-4 sm:px-6">
+    <div className="min-h-screen bg-cream">
+      <header className="sticky top-0 z-20 border-b-2 border-ink bg-white">
+        <div className="mx-auto flex max-w-300 flex-col gap-3 px-4 py-4 sm:px-6">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p className="text-xs font-semibold uppercase text-[var(--muted)]">
+              <p className="text-xs font-semibold uppercase text-muted">
                 /dev/component-explorer
               </p>
-              <h1 className="text-xl font-semibold uppercase text-[var(--ink)] sm:text-2xl">
+              <h1 className="text-xl font-semibold uppercase text-ink sm:text-2xl">
                 Design system playground
               </h1>
             </div>
-            <p className="max-w-sm text-xs leading-relaxed text-[var(--muted)]">
+            <p className="max-w-sm text-xs leading-relaxed text-muted">
               Chalkboard + ink system. JetBrains Mono for display and UI.
               Inspired by MotherDuck geometry — not affiliated.
             </p>
@@ -101,7 +101,7 @@ export default function ComponentExplorerPage() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="shrink-0 border border-[var(--ink)] bg-[var(--cream)] px-3 py-1 text-[11px] font-medium uppercase text-[var(--ink)] hover:bg-[var(--sky)]"
+                className="shrink-0 border border-ink bg-cream px-3 py-1 text-[11px] font-medium uppercase text-ink hover:bg-sky"
                 style={{ borderRadius: "var(--radius)" }}
               >
                 {section.label}
@@ -111,7 +111,7 @@ export default function ComponentExplorerPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1200px] px-4 sm:px-6">
+      <main className="mx-auto max-w-300 px-4 sm:px-6">
         <Section
           id="tokens"
           title="Design tokens"
@@ -122,18 +122,18 @@ export default function ComponentExplorerPage() {
               {COLOR_SWATCHES.map((swatch) => (
                 <div
                   key={swatch.varName}
-                  className="border-2 border-[var(--ink)] bg-[var(--white)]"
+                  className="border-2 border-ink bg-white"
                   style={{ borderRadius: "var(--radius)" }}
                 >
                   <div
-                    className="h-16 border-b-2 border-[var(--ink)]"
+                    className="h-16 border-b-2 border-ink"
                     style={{ background: swatch.value }}
                   />
                   <div className="p-2">
-                    <p className="text-[11px] font-semibold text-[var(--ink)]">
+                    <p className="text-[11px] font-semibold text-ink">
                       {swatch.name}
                     </p>
-                    <p className="text-[10px] text-[var(--muted)]">
+                    <p className="text-[10px] text-muted">
                       {swatch.value}
                     </p>
                   </div>
@@ -158,10 +158,10 @@ export default function ComponentExplorerPage() {
         >
           <div className="grid gap-6 lg:grid-cols-2">
             <div
-              className="border-2 border-[var(--ink)] bg-[var(--cream)] p-6 sm:p-8"
+              className="border-2 border-ink bg-cream p-6 sm:p-8"
               style={{ borderRadius: "var(--radius)" }}
             >
-              <p className="mb-4 text-[10px] font-semibold uppercase text-[var(--muted)]">
+              <p className="mb-4 text-[10px] font-semibold uppercase text-muted">
                 Mono on cream · ink
               </p>
               <ChalkHeading as="h1" className="uppercase">
@@ -173,14 +173,14 @@ export default function ComponentExplorerPage() {
               <ChalkHeading as="h3" className="mt-4">
                 Case study notes
               </ChalkHeading>
-              <p className="mt-6 text-sm leading-relaxed text-[var(--ink)]">
+              <p className="mt-6 text-sm leading-relaxed text-ink">
                 Body and chrome share the same mono face. Personality comes from
                 weight, case, color, and layout — not a second font (yet).
               </p>
             </div>
 
             <div className="chalkboard p-6 sm:p-8">
-              <p className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.02em] text-[var(--dust-soft)]">
+              <p className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.02em] text-dust-soft">
                 Mono on board · dust
               </p>
               <ChalkHeading as="h1" tone="dust" className="uppercase">
@@ -189,7 +189,7 @@ export default function ComponentExplorerPage() {
               <ChalkHeading as="h2" tone="dust" className="mt-4 uppercase">
                 Ship something sharp
               </ChalkHeading>
-              <p className="mt-6 font-mono text-sm leading-relaxed tracking-[0.02em] text-[var(--dust-soft)]">
+              <p className="mt-6 font-mono text-sm leading-relaxed tracking-[0.02em] text-dust-soft">
                 Board panels are for featured statements — hero moments, chapter
                 breaks, or a single memorable line.
               </p>
@@ -236,7 +236,7 @@ export default function ComponentExplorerPage() {
               </Button>
             ))}
           </div>
-          <p className="mt-4 text-xs text-[var(--muted)]">
+          <p className="mt-4 text-xs text-muted">
             Rainbow cycle: {RAINBOW.length} outline colors
           </p>
         </Section>
@@ -247,7 +247,7 @@ export default function ComponentExplorerPage() {
           description="White bar, ink bottom border, brand left, uppercase links center, ghost login + flat sky CTA right. No sticky elevation — keep the header lightweight."
         >
           <div
-            className="overflow-hidden border-2 border-[var(--ink)] shadow-[var(--shadow)]"
+            className="overflow-hidden border-2 border-ink shadow-hard"
             style={{ borderRadius: "var(--radius)" }}
           >
             <NavBar
@@ -269,7 +269,7 @@ export default function ComponentExplorerPage() {
           description="Cream canvas. Light-weight uppercase mono display. Short supporting sentence. Two CTAs (primary + secondary). Optional logo strip below. Keep the first viewport to brand + headline + sentence + CTAs + one visual."
         >
           <div
-            className="overflow-hidden border-2 border-[var(--ink)]"
+            className="overflow-hidden border-2 border-ink"
             style={{ borderRadius: "var(--radius)" }}
           >
             <Hero
@@ -297,7 +297,7 @@ export default function ComponentExplorerPage() {
           description="Full-bleed canary yellow strip. Uppercase mono text scrolling horizontally. No border, no shadow — a rhythmic visual reset between sections."
         >
           <div
-            className="overflow-hidden border-2 border-[var(--ink)]"
+            className="overflow-hidden border-2 border-ink"
             style={{ borderRadius: "var(--radius)" }}
           >
             <Marquee
@@ -369,7 +369,7 @@ export default function ComponentExplorerPage() {
           </div>
         </Section>
 
-        <footer className="py-10 text-center text-xs text-[var(--muted)]">
+        <footer className="py-10 text-center text-xs text-muted">
           Inspired by MotherDuck’s public visual language · JetBrains Mono ·
           Next.js 16 / React 19
         </footer>

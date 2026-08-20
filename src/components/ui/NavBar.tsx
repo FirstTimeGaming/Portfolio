@@ -44,11 +44,11 @@ export function NavBar({
   ghostHref,
 }: NavBarProps) {
   return (
-    <header className="w-full border-b border-[var(--ink)] bg-[var(--white)]">
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <header className="w-full border-b border-ink bg-white">
+      <div className="mx-auto flex max-w-300 items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link
           href="/"
-          className="text-base font-semibold tracking-[0.02em] text-[var(--ink)]"
+          className="text-base font-semibold tracking-[0.02em] text-ink"
         >
           {brand}
         </Link>
@@ -59,7 +59,7 @@ export function NavBar({
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 text-xs font-medium uppercase text-[var(--ink)] transition-colors hover:bg-[var(--chalk)]"
+                className="px-3 py-1.5 text-xs font-medium uppercase text-ink transition-colors hover:bg-chalk"
                 style={{ borderRadius: "var(--radius)" }}
               >
                 {link.label}
@@ -68,7 +68,7 @@ export function NavBar({
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 text-xs font-medium uppercase text-[var(--ink)] transition-colors hover:bg-[var(--chalk)]"
+                className="px-3 py-1.5 text-xs font-medium uppercase text-ink transition-colors hover:bg-chalk"
                 style={{ borderRadius: "var(--radius)" }}
               >
                 {link.label}
@@ -88,7 +88,7 @@ export function NavBar({
                     ? "noopener noreferrer"
                     : undefined
                 }
-                className="hidden px-3 py-2 text-xs font-medium uppercase text-[var(--ink)] transition-colors hover:bg-[var(--chalk)] sm:inline-flex"
+                className="hidden px-3 py-2 text-xs font-medium uppercase text-ink transition-colors hover:bg-chalk sm:inline-flex"
                 style={{ borderRadius: "var(--radius)" }}
               >
                 {ghostLabel}
@@ -107,7 +107,7 @@ export function NavBar({
             <CopyEmailButton
               email={copyEmail}
               lift={false}
-              className="inline-flex items-center justify-center border-2 border-[var(--ink)] bg-[var(--sky)] px-4 py-2 text-xs font-semibold uppercase text-[var(--white)]"
+              className="inline-flex items-center justify-center border-2 border-ink bg-sky px-4 py-2 text-xs font-semibold uppercase text-white"
               style={{ borderRadius: "var(--radius)" }}
             >
               {ctaLabel}
@@ -115,7 +115,7 @@ export function NavBar({
           ) : ctaHref ? (
             <a
               href={ctaHref}
-              className="inline-flex items-center justify-center border-2 border-[var(--ink)] bg-[var(--sky)] px-4 py-2 text-xs font-semibold uppercase text-[var(--white)]"
+              className="inline-flex items-center justify-center border-2 border-ink bg-sky px-4 py-2 text-xs font-semibold uppercase text-white"
               style={{ borderRadius: "var(--radius)" }}
             >
               {ctaLabel}

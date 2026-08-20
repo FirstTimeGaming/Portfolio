@@ -15,7 +15,7 @@ export function Marquee({
   const sequence = [...items, ...items];
 
   return (
-    <div className="w-full overflow-hidden bg-[var(--canary)] py-3">
+    <div className="w-full overflow-hidden bg-canary py-3">
       <div
         className="flex w-max animate-marquee gap-10 whitespace-nowrap px-4"
         style={{ animationDuration: `${speedSeconds}s` }}
@@ -23,10 +23,10 @@ export function Marquee({
         {sequence.map((item, index) => (
           <span
             key={`${item}-${index}`}
-            className="text-lg font-semibold uppercase tracking-[0.04em] text-[var(--ink)] sm:text-xl"
+            className="text-lg font-semibold uppercase tracking-[0.04em] text-ink sm:text-xl"
           >
             {item}
-            <span className="ml-10 text-[var(--ink)]/40" aria-hidden>
+            <span className="ml-10 text-ink/40" aria-hidden>
               ◆
             </span>
           </span>
