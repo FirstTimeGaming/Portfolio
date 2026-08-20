@@ -48,11 +48,6 @@ export default function Home() {
           <ChalkHeading as="h2" className="mt-2 max-w-2xl uppercase">
             Selected engineering work
           </ChalkHeading>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--ink)] sm:text-base">
-            Deeper cuts from a curated brag sheet — grouped by problem area, with
-            attribution-safe wording and concrete scope where the evidence
-            supports it
-          </p>
 
           <div className="mt-12 space-y-14">
             {site.experiences.map((job) => (
