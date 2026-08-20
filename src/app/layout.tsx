@@ -11,7 +11,10 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const siteUrl = "https://cwaz.dev";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: `${site.name} — ${site.title}`,
   description:
     "Software engineer in Jupiter, FL. Production TypeScript platforms, data pipelines, and AI product work.",
@@ -64,13 +67,40 @@ export const metadata: Metadata = {
       "Production TypeScript platforms, data pipelines, and AI product work from Jupiter, FL.",
     type: "website",
     locale: "en_US",
+    url: siteUrl,
   },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: siteUrl,
+  jobTitle: site.title,
+  email: `mailto:${site.email}`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Jupiter",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: site.education.school,
+  },
+  sameAs: [site.linkedin, site.github],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${jetbrainsMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-mono tracking-[0.02em] text-ink bg-cream">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <ToastProvider>
           <SmoothHashScroll />
           {children}
