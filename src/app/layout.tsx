@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${site.name} — ${site.title}`,
   description:
-    "Software engineer in Jupiter, FL. Production TypeScript platforms, data pipelines, and AI product work.",
+    "Software engineer in Jupiter, FL. TypeScript platforms, data pipelines, and AI product work.",
+  applicationName: "cwaz.dev",
   keywords: [
     site.name,
     "Chase",
@@ -64,10 +65,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${site.name} — ${site.title}`,
     description:
-      "Production TypeScript platforms, data pipelines, and AI product work from Jupiter, FL.",
+      "Software engineer in Jupiter, FL. TypeScript platforms, data pipelines, and AI product work.",
     type: "website",
     locale: "en_US",
     url: siteUrl,
+    siteName: "cwaz.dev",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.title}`,
+    description:
+      "Software engineer in Jupiter, FL. TypeScript platforms, data pipelines, and AI product work.",
   },
 };
 
